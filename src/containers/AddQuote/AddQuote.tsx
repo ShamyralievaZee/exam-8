@@ -2,14 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ICategory, IQuote } from '../../types';
 import axiosApi from '../../AxiosAPI.ts';
-
-const categories: ICategory[] = [
-  { title: 'Star Wars', id: 'star-wars' },
-  { title: 'Famous People', id: 'famous-people' },
-  { title: 'Saying', id: 'saying' },
-  { title: 'Humour', id: 'humour' },
-  { title: 'Motivational', id: 'motivational' },
-];
+import categories from '../../categories.ts';
 
 const AddQuote: React.FC = () => {
   const [quote, setQuote] = useState<Omit<IQuote, 'id'>>({ category: '', author: '', text: '' });
@@ -27,8 +20,9 @@ const AddQuote: React.FC = () => {
   };
 
   return (
-    <form className='container' onSubmit={handleSubmit}>
-      <h3>Add Quote</h3>
+    <form className='container form-box' onSubmit={handleSubmit}>
+      <h3 className='page-title'>Add Quote</h3>
+
       <select
         required
         value={quote.category}
@@ -38,16 +32,17 @@ const AddQuote: React.FC = () => {
         {categories.map((category: ICategory) => (
           <option key={category.id} value={category.id}>{category.title}</option>
         ))}
+
       </select>
       <input
         type="text"
-        placeholder="Author"
+        placeholder="Author name"
         required
         value={quote.author}
         onChange={e => setQuote({ ...quote, author: e.target.value })}
       />
       <textarea
-        placeholder="Quote text"
+        placeholder="Write your quote here"
         required
         value={quote.text}
         onChange={e => setQuote({ ...quote, text: e.target.value })}
