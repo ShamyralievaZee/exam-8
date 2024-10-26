@@ -83,5 +83,35 @@
   color: #352525;
 }
 
+.category-sidebar{
+  width: 30%;
+}
+
+.quotes-container{
+  width: 70%;
+}
+
+.category-list{
+  list-style: none;
+  text-align:left;
+  padding: 10px 10px 10px 0;
+  border-radius: 5px;
+}
+
+.category-list li{
+  padding: 15px 0;
+  border-bottom: 1px solid #dac2b8;
+}
+
+.category-list li a{
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.category-list li a:hover{
+  color: #bd8b72;
+}
+
 
 

@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ICategory, IQuote } from '../../types';
 import axiosApi from '../../AxiosAPI.ts';
-import categories from '../../categories.ts';
+
+const categories: ICategory[] = [
+  { title: 'Star Wars', id: 'star-wars' },
+  { title: 'Famous People', id: 'famous-people' },
+  { title: 'Saying', id: 'saying' },
+  { title: 'Humour', id: 'humour' },
+  { title: 'Motivational', id: 'motivational' },
+];
 
 const AddQuote: React.FC = () => {
   const [quote, setQuote] = useState<Omit<IQuote, 'id'>>({ category: '', author: '', text: '' });

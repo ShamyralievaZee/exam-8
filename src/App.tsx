@@ -1,6 +1,7 @@
 import {Routes, Route, NavLink } from 'react-router-dom';
 import AddQuote from './containers/AddQuote/AddQuote.tsx';
 import './App.css';
+import QuotesList from './containers/QuotesList/QuotesList.tsx';
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
       </div>
       <Routes>
         <Route path="/add-quote" element={<AddQuote/>}/>
+        <Route path="/" element={<QuotesList/>}/>
+        <Route path="/quotes/:category" element={<QuotesList/>}/>
       </Routes>
     </div>
 
