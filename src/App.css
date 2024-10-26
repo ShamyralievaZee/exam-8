@@ -5,8 +5,15 @@
   text-align: center;
 }
 
-.Outer-header{
+.outer-header{
   background-color: #e3d5bb;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .header{
@@ -164,8 +171,8 @@
 
 .single-quote-author{
  font-weight: 500;
-
 }
+
 
 
 
