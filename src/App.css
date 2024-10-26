@@ -83,12 +83,13 @@
   color: #352525;
 }
 
-.category-sidebar{
-  width: 30%;
+.quotes-list{
+  display: flex;
 }
 
-.quotes-container{
-  width: 70%;
+.category-sidebar{
+  width: 30%;
+  flex: 0 0 30%;
 }
 
 .category-list{
@@ -111,6 +112,59 @@
 
 .category-list li a:hover{
   color: #bd8b72;
+}
+
+.quotes-container{
+  width: 60%;
+  flex: 0 0 70%;
+  padding-left: 1rem;
+}
+
+.quotes-container .page-title{
+  margin-bottom: 30px;
+}
+
+.single-quote{
+  border: 1px solid #dac2b8;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.single-quote button{
+  padding: 10px 20px;
+  border: none;
+  color: #000000;
+  background-color: #bd8b72;
+  border-radius: 5px;
+}
+
+.single-quote button:hover{
+  background-color: #fadba5;
+  color: #352525;
+}
+
+.single-quote a{
+  text-decoration: none;
+  color: #000000;
+  background-color: #bd8b72;
+  padding: 12px 30px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.single-quote a:hover{
+  background-color: #fadba5;
+  color: #352525;
+}
+
+.single-quote-text{
+  color: #656565;
+}
+
+.single-quote-author{
+ font-weight: 500;
+
 }
 
 

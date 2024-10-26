@@ -31,8 +31,9 @@ const QuotesList: React.FC = () => {
           ? Object.keys(response.data).map(key => ({
             id: key,
             ...response.data[key],
-          }))
+          })).reverse()
           : [];
+
 
         setQuotes(loadedQuotes);
       } catch (error) {
@@ -44,8 +45,13 @@ const QuotesList: React.FC = () => {
     void fetchQuotes();
   }, [category]);
 
+  const handleDelete = async (id: string) => {
+    await axiosApi.delete(`/quotes/${id}.json`);
+    setQuotes(prevQuotes => prevQuotes.filter(quote => quote.id !== id));
+  };
+
   return (
-    <div className="container">
+    <div className="container quotes-list">
       <div className='category-sidebar'>
         <h4 className='page-title'>Categories</h4>
         <ul className='category-list'>
@@ -58,13 +64,16 @@ const QuotesList: React.FC = () => {
       </div>
 
       <div className="quotes-container">
+        <h4 className="page-title">Quotes</h4>
         {loading ? (
-          <Spinner />
+          <Spinner/>
         ) : quotes.length > 0 ? (
           quotes.map((quote) => (
-            <div key={quote.id} className="quote">
-              <p>{quote.text}</p>
-              <p>{quote.author}</p>
+            <div key={quote.id} className="single-quote">
+              <p className='single-quote-text' >“{quote.text}“</p>
+              <p className='single-quote-author'> - {quote.author}</p>
+              <Link to={`/quotes/${quote.id}/edit`}>Edit</Link>
+              <button onClick={() => handleDelete(quote.id)}>Delete</button>
             </div>
           ))
         ) : (
